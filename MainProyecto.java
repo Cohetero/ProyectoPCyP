@@ -1,4 +1,4 @@
-public class mainProyecto
+public class MainProyecto
 {
     public static void main (String args[])
     {
