@@ -1,9 +1,9 @@
 /***************************************\
 *Clase Telefono de proyecto "Central	*
-*Telefonica"							*
+*Telefonica"				*
 *Su funcion es emular el funcionamiento	*
 *de un telefono. Podrá realizar y     	*
-*recibir llamadas.						*
+*recibir llamadas.			*
 \***************************************/
 
 public class Telefono extends Thread{
