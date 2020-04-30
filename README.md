@@ -57,7 +57,7 @@ libre de errores sintácticos, es decir, archivos .java y .class, en un CD etiqu
 de los integrantes del equipo
 
 ## Analisis del sistema.  
-el sistema estára formado con dos clases: 
+el sistema estára formado con dos clases principales: 
 - CentralTelefonica, su tarea será administrar los telefonos y las llamadas a estos.
 - Telefono, durante la ejecucion del programa, se crearan diez instancias de dicha clase, y seran estás las que intertactuen 
 con el usuario.
