@@ -13,14 +13,19 @@ public class CentralTelefonica
         //Se crea un array para diez elementos de tipo "Telefono"
         Telefono[] telefonos = new Telefono[10]; 
         
-        //Se instancia cada uno de los elementos de dicho array
-        for(int i = 0; i < 10; i++) telefonos[i] = new Telefono();
-        
-        //Se instancia un elemento "Central" 
+        //Se instancia un objeto "Central" 
         Central central = new Central(telefonos);
+        
+        //se instancia la interfaz de usuario
+        InterfazUsuario interfaz = new InterfazUsuario(telefonos);
+        
+        //Se instancia cada uno de los elementos de dicho array
+        for(int i = 0; i < 10; i++) telefonos[i] = new Telefono(central);
         
         //-----------------Ejecucion de los hilos-----------------
         central.start();
-        for(Telefono telefono: telefonos) telefono.start();//se ejecuta un hilo por cada instancia "telefono" en "telefonos" 
+        for(Telefono telefono: telefonos) telefono.start();//se ejecuta un hilo por cada instancia "telefono" en "telefonos"
+        
+        interfaz.interfaz();
     }
 }
