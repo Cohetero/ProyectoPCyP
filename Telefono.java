@@ -10,7 +10,7 @@ public class Telefono extends Thread{
 	
 	
 	private Central central;//necesario para poder mantener comunicacion con el objeto "central"
-	private boolean colgado = true;//estado del telefono (colgado, descolgado).
+	public boolean colgado = true;//estado del telefono (colgado, descolgado).
 	
 	//----------------constructor de la clase--------------------
 	public Telefono(Central central){
