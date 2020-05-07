@@ -20,12 +20,14 @@ public class CentralTelefonica
         InterfazUsuario interfaz = new InterfazUsuario(telefonos);
         
         //Se instancia cada uno de los elementos de dicho array
-        for(int i = 0; i < 10; i++) telefonos[i] = new Telefono(central);
+        for(short i = 0; i < 10; i++) telefonos[i] = new Telefono(central, i);
         
         //-----------------Ejecucion de los hilos-----------------
         central.start();
         for(Telefono telefono: telefonos) telefono.start();//se ejecuta un hilo por cada instancia "telefono" en "telefonos"
         
-        interfaz.interfaz();
+        while(true){
+        	interfaz.interfaz();
+        }
     }
 }

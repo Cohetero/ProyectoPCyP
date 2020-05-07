@@ -12,7 +12,9 @@ public class InterfazUsuario {
 	
 	public void interfaz(){
 		System.out.println("Telefono a descolgar");
-		int num = sc.nextInt();
-		telefonos[num].descolgar();
+		int tel = sc.nextInt();
+		telefonos[tel].descolgar();
+		short num = sc.nextShort();
+		telefonos[tel].setNumero(num);
 	}
 }
