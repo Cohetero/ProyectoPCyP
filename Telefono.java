@@ -14,6 +14,7 @@
 *-descolgar								*
 *-marcando								*
 *-setNumero								*
+*-setEstado								*
 *-private despertar						*
 \***************************************/
 
@@ -40,7 +41,7 @@ public class Telefono extends Thread{
 	public Telefono(Central central, short telefono){
 		this.central = central;
 		this.telefono = telefono;
-		estado = 0;
+		setEstado(0);
 	}
 
 	//---------------Funcion que crea los hilos------------------
@@ -55,6 +56,8 @@ public class Telefono extends Thread{
 	//permitira mantenerlo en espera hasta que sea llamada
 	//la funcion correspondiente (descolgar).
 	public synchronized void llamar() {
+
+		int auxEstado;
 		
 		//el ciclo se ejecutara si el telefono se encuentra colgado, en ese caso
 		//se pondra en espera todo el hilo
@@ -72,9 +75,10 @@ public class Telefono extends Thread{
 		//entra si telefono ha descolgado
 		if(estado == 1) {
 			this.marcando();
-			estado = 4;
+			this.setEstado(4);
 			System.out.println("Piii-Piii-Piii...");
-			estado = central.conexion(numero, telefono); //Despierta a la central para poder realizar la conexion
+			auxEstado = central.conexion(numero, telefono); //Despierta a la central para poder realizar la conexion
+			this.setEstado(auxEstado);
 
 			if(estado == 5){	//Si estado es igual a 5 se realiza la llamada
 				System.out.println("Hola ");
@@ -87,11 +91,11 @@ public class Telefono extends Thread{
 				System.out.println("Tuuu-Tuuu-Tuuu...");
 			}
 		}else if(estado == 6){ //si estado es igual a 6 indica que contesto la llamada entrante
-			estado = 5;
+			this.setEstado(5);
 			System.out.println("Bueno ");
 			System.out.println("bla bla bla bla bla");
 		}
-		estado = 0;
+		this.setEstado(0);
 		dormido = true;
 	}
 	
@@ -102,7 +106,7 @@ public class Telefono extends Thread{
 	//esta funcion.
 	public void descolgar() {
 		this.despertar();//Despierta el hilo del objeto telefono en que ha sido llamado.
-		estado = 1;
+		this.setEstado(1);
 		//estado = central.conectar();//Despierta el hilo de la central telefgonica, y verifica estado.
 	}
 
@@ -114,7 +118,7 @@ public class Telefono extends Thread{
 	public synchronized void descolgarPorLlamada(short remitente){
 		System.out.println("Ring-Ring");
 		System.out.println("Me estan llamando el Telefono " + remitente);
-		estado = 6;
+		this.setEstado(6);
 		this.despertar();	//despierta al hilo telefono
 	}
 	
@@ -125,11 +129,11 @@ public class Telefono extends Thread{
 	//se establece el estado a 3(llamando).
 	public synchronized void marcando() {
 		System.out.println("marcando");
-		estado = 2;
+		this.setEstado(2);
 		try {
 			wait();//el hilo entra es espera hasta que sea llamada a la funcion correspondiente
 		}catch(InterruptedException e) {}
-		estado = 3;
+		this.setEstado(3);
 		System.out.println("marcado al tel No: "+numero);
 	}
 	
@@ -139,6 +143,14 @@ public class Telefono extends Thread{
 	public void setNumero(short numero){
 		this.numero = numero;
 		this.despertar();
+	}
+
+	//----------funcion que define el estado del telefono--------
+	//La funcion modifica la variable de estado del telefono y
+	//notifica a la funcion interfaz de dicho cambio.
+	public void setEstado(int estado){
+		this.estado = (short)estado;
+		System.out.println("estado: "+this.estado);	
 	}
 	
 	//----------funcion que reanuda el hilo----------------------

@@ -23,7 +23,6 @@ public class CentralTelefonica
         for(short i = 0; i < 10; i++) telefonos[i] = new Telefono(central, i);
         
         //-----------------Ejecucion de los hilos-----------------
-        central.start();
         for(Telefono telefono: telefonos) telefono.start();//se ejecuta un hilo por cada instancia "telefono" en "telefonos"
         
         while(true){
