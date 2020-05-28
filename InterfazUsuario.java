@@ -12,6 +12,10 @@ public class InterfazUsuario {
 	
 	public void interfaz(){
 		System.out.println("Telefono a descolgar");
+//<<<<<<< Codigo-en-revison-2
+		System.out.println("Piiiiiii...");
+//=======
+//>>>>>>> Codigo-en-revision
 		int tel = sc.nextInt();
 		telefonos[tel].descolgar();
 		short num = sc.nextShort();
