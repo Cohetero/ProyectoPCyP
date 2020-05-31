@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="centraltelefonica.FXMLDocumentController">
+    <children>
+      <GridPane alignment="CENTER" layoutX="1.0" prefHeight="200.0" prefWidth="320.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono 1" />
+                  <Button mnemonicParsing="false" onAction="#handlePickButton0" text="Colgar" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="state0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="call0" onMouseClicked="#onClickNum0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCallButton0" text="Llamar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="genSte0" text="Colgado" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono 2" />
+                  <Button mnemonicParsing="false" onAction="#handlePickButton1" text="Colgar" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="state1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="call1" onMouseClicked="#onClickNum1" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCallButton1" text="Llamar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="genSte1" text="Colgado" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.columnIndex="2">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono 3" />
+                  <Button mnemonicParsing="false" onAction="#handlePickButton2" text="Colgar" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="state2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="call2" onMouseClicked="#onClickNum2" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCallButton2" text="Llamar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="genSte2" text="Colgado" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.rowIndex="1">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono 4" />
+                  <Button mnemonicParsing="false" onAction="#handlePickButton3" text="Colgar" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="state3" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="call3" onMouseClicked="#onClickNum3" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCallButton3" text="Llamar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="genSte3" text="Colgado" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono 5" />
+                  <Button mnemonicParsing="false" onAction="#handlePickButton4" text="Colgar" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="state4" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="call4" onMouseClicked="#onClickNum4" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCallButton4" text="Llamar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="genSte4" text="Colgado" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono 6" />
+                  <Button mnemonicParsing="false" onAction="#handlePickButton5" text="Colgar" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="state5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="call5" onMouseClicked="#onClickNum5" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCallButton5" text="Llamar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="genSte5" text="Colgado" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.rowIndex="2">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono 7" />
+                  <Button mnemonicParsing="false" onAction="#handlePickButton6" text="Colgar" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="state6" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="call6" onMouseClicked="#onClickNum6" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCallButton6" text="Llamar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="genSte6" text="Colgado" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono 8" />
+                  <Button mnemonicParsing="false" onAction="#handlePickButton7" text="Colgar" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="state7" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="call7" onMouseClicked="#onClickNum7" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCallButton7" text="Llamar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="genSte7" text="Colgado" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono 9" />
+                  <Button mnemonicParsing="false" onAction="#handlePickButton8" text="Colgar" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="state8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="call8" onMouseClicked="#onClickNum0" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCallButton8" text="Llamar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="genSte8" text="Colgado" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.rowIndex="3">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono 1" />
+                  <Button mnemonicParsing="false" onAction="#handlePickButton9" text="Colgar" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="state9" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="call9" onMouseClicked="#onClickNum9" GridPane.rowIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleCallButton9" text="Llamar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="genSte9" text="Colgado" GridPane.rowIndex="2" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </GridPane>
+    </children>
+</AnchorPane>
