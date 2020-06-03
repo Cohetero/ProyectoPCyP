@@ -61,4 +61,19 @@ public class Central{
 		}
 		return 7;
 	}
+	
+	//Funcion que se ejecuta cuando un telefono cuelga, por lo que el estado del otro telefono tambien debe cambiar.
+	public void finalizarLlamada(int remitente, int destinatario) {
+		this.remitente = remitente; //numero que cuelga
+		this.destinatario = destinatario; //numero al que se colgó
+		for(i = 0; i < numeroTelefonos; i ++) { //buscar el telefono al que se le ha colgado
+			//cuando el teléfono que solicitó colgar cumpla esa función, es necesario cambiar
+			// el estado del otro teléfono a descolgado.
+			if(telefonos[i].getTelefono() == destinatario) { //si el telefono corresponde con el que se establecía la llamada
+				telefonos[i].descolgar(); //cambiamos el estado del destinatario de llamada a unicamente descolgado.
+				System.out.println("Mensaje del telefono" + destinatario + " -> El telefono " + remitente + " terminó la llamada conmigo.");
+				break; //rompemos el ciclo de busqueda
+			}
+		}
+	}
 }
