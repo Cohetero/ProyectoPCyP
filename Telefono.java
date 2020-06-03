@@ -156,7 +156,7 @@ public class Telefono extends Thread{
 			dormido = true; //el teléfono ha sido colgado.
 		}
 		//De lo contrario, si el teléfono está en una llamada es necesario notificar a la centrar que el teléfono está libre.
-		else if(this.getEstado() == 6) {
+		else if(this.getEstado() == 3) {
 			//se debe notificar a la central para que el otro telefono sepa que ya se ha finalizado la llamada
 			central.finalizarLlamada(telefono, numero); //donde telefono es el remitente y numero es el telefono con el que se comunica
 			System.out.println("Este telefono con numero " + numero + " finalizó la llamada con " + telefono);
