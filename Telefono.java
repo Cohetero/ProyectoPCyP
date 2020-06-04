@@ -154,8 +154,8 @@ public class Telefono extends Thread{
 			this.setEstado(0); // El estado de colgado es 0. 
 			//Deteniendo flujo del telefono.
 			dormido = true; //el telefono ha sido colgado.
-            this.numero = -1; //se asigna -1 debido a que el telefono 0 existe. 
-            this.start(); //renaudando el flujo de la informacion en el telefono despues de haber colgado.
+            		this.numero = -1; //se asigna -1 debido a que el telefono 0 existe. 
+            		this.start(); //renaudando el flujo de la informacion en el telefono despues de haber colgado.
 		}
 		//De lo contrario, si el telefono esta en una llamada es necesario notificar a la central que el telefono esta libre.
 		else if(this.getEstado() == 3) {
@@ -164,8 +164,8 @@ public class Telefono extends Thread{
 			System.out.println("Este telefono con numero " + numero + " finalizo la llamada con " + telefono);
 			this.setEstado(0);
 			dormido = true;
-            this.numero = -1; //se asigna -1 debido a que el telefono 0 existe.
-            notifyAll(); //el telefono esta libre y puede realizarse una nueva llamada
+            		this.numero = -1; //se asigna -1 debido a que el telefono 0 existe.
+            		notifyAll(); //el telefono esta libre y puede realizarse una nueva llamada
 			this.start(); //renaudando el flujo de la informacion en el telefono despues de haber colgado.
 		}
 	}
