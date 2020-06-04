@@ -145,24 +145,28 @@ public class Telefono extends Thread{
 	}
 	
 	public synchronized  void colgar() {
-		//Comparar si el telefono descolgado no está realizando una llamada.
-		//Esto para poder notificar al otro teléfono que la llamada ya ha finalizado.
+		//Comparar si el telefono descolgado no esta realizando una llamada.
+		//Esto para poder notificar al otro telefono que la llamada ya ha finalizado.
 		System.out.println("Voy a colgar...");
-		//Escenarios fuera de una llamada con otro teléfono (3) o bien, este permanezca colgado pero esté siendo llamado (6) 
-		if(this.getEstado() > 0 && this.getEstado() != 3 && this.getEstado() != -6) {
-			System.out.println("Este teléfono se ha colgado");
+		//Escenarios fuera de una llamada con otro telefono (3) o bien, este permanezca colgado pero esta siendo llamado (6) 
+		if(this.getEstado() > 0 && this.getEstado() != 3) {
+			System.out.println("Este telefono se ha colgado");
 			this.setEstado(0); // El estado de colgado es 0. 
-			//Deteniendo flujo del teléfono.
-			dormido = true; //el teléfono ha sido colgado.
+			//Deteniendo flujo del telefono.
+			dormido = true; //el telefono ha sido colgado.
+            this.numero = -1; //se asigna -1 debido a que el telefono 0 existe. 
+            this.start(); //renaudando el flujo de la informacion en el telefono despues de haber colgado.
 		}
-		//De lo contrario, si el teléfono está en una llamada es necesario notificar a la centrar que el teléfono está libre.
+		//De lo contrario, si el telefono esta en una llamada es necesario notificar a la central que el telefono esta libre.
 		else if(this.getEstado() == 3) {
 			//se debe notificar a la central para que el otro telefono sepa que ya se ha finalizado la llamada
 			central.finalizarLlamada(telefono, numero); //donde telefono es el remitente y numero es el telefono con el que se comunica
-			System.out.println("Este telefono con numero " + numero + " finalizó la llamada con " + telefono);
+			System.out.println("Este telefono con numero " + numero + " finalizo la llamada con " + telefono);
 			this.setEstado(0);
-			notifyAll(); //el telefono está libre y puede realizarse una nueva llamada
 			dormido = true;
+            this.numero = -1; //se asigna -1 debido a que el telefono 0 existe.
+            notifyAll(); //el telefono esta libre y puede realizarse una nueva llamada
+			this.start(); //renaudando el flujo de la informacion en el telefono despues de haber colgado.
 		}
 	}
 	
