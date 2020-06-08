@@ -113,6 +113,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
+                telefonos[0].colgar();
                 genSte0.setText("Colgado");
                 state0.setText("");
             break;
@@ -131,6 +132,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
+                telefonos[1].colgar();
                 genSte1.setText("Colgado");
                 state1.setText("");
             break;
@@ -149,6 +151,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
+                telefonos[2].colgar();
                 genSte2.setText("Colgado");
                 state2.setText("");
             break;
@@ -167,6 +170,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
+                telefonos[3].colgar();
                 genSte3.setText("Colgado");
                 state3.setText("");
             break;
@@ -185,6 +189,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
+                telefonos[4].colgar();
                 genSte4.setText("Colgado");
                 state4.setText("");
             break;
@@ -203,6 +208,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
+                telefonos[5].colgar();
                 genSte5.setText("Colgado");
                 state5.setText("");
             break;
@@ -221,6 +227,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
+                telefonos[6].colgar();
                 genSte6.setText("Colgado");
                 state6.setText("");
             break;
@@ -239,6 +246,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
+                telefonos[7].colgar();
                 genSte7.setText("Colgado");
                 state7.setText("");
             break;
@@ -257,6 +265,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
+                telefonos[8].colgar();
                 genSte8.setText("Colgado");
                 state8.setText("");
             break;
@@ -275,6 +284,7 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
+                telefonos[9].colgar();
                 genSte9.setText("Colgado");
                 state9.setText("");
             break;

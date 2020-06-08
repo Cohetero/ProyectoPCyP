@@ -81,21 +81,28 @@ public class Telefono extends Thread{
 		//entra si telefono ha descolgado
 		if(estado == 1) {
 			this.marcando();
-			this.setEstado(4);
-			System.out.println("Piii-Piii-Piii...");
-			auxEstado = central.conexion(numero, telefono); //Despierta a la central para poder realizar la conexion
-			this.setEstado(auxEstado);
-
-			if(estado == 5){	//Si estado es igual a 5 se realiza la llamada
-				System.out.println("Hola ");
+                        if(estado == 0){
+                            System.out.println("marcado al tel No: "+numero);
+                            this.setEstado(4);
+                            System.out.println("Piii-Piii-Piii...");
+                            auxEstado = central.conexion(numero, telefono); //Despierta a la central para poder realizar la conexion
+                            this.setEstado(auxEstado);
+                        }
+                            
+                        switch(estado){
+                            case 5: //Si estado es igual a 5 se realiza la llamada
+                                System.out.println("Hola ");
 				System.out.println("bla bla bla");
-			}else if(estado == 7){ // Si estado es igual a 7 manda mensaje de que no existe
-				System.out.println("El numero que usted marco no existe, favor de verificarlo");
+                            break;
+                            case 7: // Si estado es igual a 7 manda mensaje de que no existe
+                                System.out.println("El numero que usted marco no existe, favor de verificarlo");
 				System.out.println("Tuuu-Tuuu-Tuuu...");
-			}else if(estado == 8){ //Si estado es igual a 8 manda mensaje de que esta ocupado
-				System.out.println("El numero que usted marco no existe no se encuentra disponible, favor de llamar mas tarde");
+                            break;
+                            case 8: //Si estado es igual a 8 manda mensaje de que esta ocupado
+                                System.out.println("El numero que usted marco no existe no se encuentra disponible, favor de llamar mas tarde");
 				System.out.println("Tuuu-Tuuu-Tuuu...");
-			}
+                            break;
+                        }
 		}else if(estado == 6){ //si estado es igual a 6 indica que contesto la llamada entrante
 			this.setEstado(5);
 			System.out.println("Bueno ");
@@ -141,7 +148,6 @@ public class Telefono extends Thread{
 			wait();//el hilo entra es espera hasta que sea llamada a la funcion correspondiente
 		}catch(InterruptedException e) {}
 		this.setEstado(3);
-		System.out.println("marcado al tel No: "+numero);
 	}
 	
 	public synchronized void colgar() {
