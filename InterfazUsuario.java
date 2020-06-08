@@ -1,3 +1,5 @@
+package centraltelefonica;
+
 import java.util.Scanner;
 
 public class InterfazUsuario {
