@@ -66,7 +66,7 @@ public class Central{
 	public void finalizarLlamada(int remitente, int destinatario) {
 		this.remitente = (short)remitente; //numero que cuelga
 		this.destinatario = (short)destinatario; //numero al que se colgó
-		for(int i = 0; i < numeroTelefonos; i ++) { //buscar el telefono al que se le ha colgado
+		for(short i = 0; i < numeroTelefonos; i ++) { //buscar el telefono al que se le ha colgado
 			//cuando el teléfono que solicitó colgar cumpla esa función, es necesario cambiar
 			// el estado del otro teléfono a descolgado.
 			if(telefonos[i].getTelefono() == destinatario) { //si el telefono corresponde con el que se establecía la llamada

@@ -81,28 +81,27 @@ public class Telefono extends Thread{
 		//entra si telefono ha descolgado
 		if(estado == 1) {
 			this.marcando();
-                        if(estado == 0){
-                            System.out.println("marcado al tel No: "+numero);
+			if(estado == 3){
                             this.setEstado(4);
                             System.out.println("Piii-Piii-Piii...");
                             auxEstado = central.conexion(numero, telefono); //Despierta a la central para poder realizar la conexion
                             this.setEstado(auxEstado);
                         }
-                            
+                        
                         switch(estado){
-                            case 5: //Si estado es igual a 5 se realiza la llamada
-                                System.out.println("Hola ");
+                            case 5://Si estado es igual a 5 se realiza la llamada
+				System.out.println("Hola ");
 				System.out.println("bla bla bla");
                             break;
-                            case 7: // Si estado es igual a 7 manda mensaje de que no existe
-                                System.out.println("El numero que usted marco no existe, favor de verificarlo");
+                            case 7:// Si estado es igual a 7 manda mensaje de que no existe
+				System.out.println("El numero que usted marco no existe, favor de verificarlo");
 				System.out.println("Tuuu-Tuuu-Tuuu...");
                             break;
-                            case 8: //Si estado es igual a 8 manda mensaje de que esta ocupado
-                                System.out.println("El numero que usted marco no existe no se encuentra disponible, favor de llamar mas tarde");
+                            case 8://Si estado es igual a 8 manda mensaje de que esta ocupado
+				System.out.println("El numero que usted marco no existe no se encuentra disponible, favor de llamar mas tarde");
 				System.out.println("Tuuu-Tuuu-Tuuu...");
                             break;
-                        }
+			}
 		}else if(estado == 6){ //si estado es igual a 6 indica que contesto la llamada entrante
 			this.setEstado(5);
 			System.out.println("Bueno ");
@@ -147,24 +146,31 @@ public class Telefono extends Thread{
 		try {
 			wait();//el hilo entra es espera hasta que sea llamada a la funcion correspondiente
 		}catch(InterruptedException e) {}
-		this.setEstado(3);
+		if (!dormido){
+                    this.setEstado(3);
+                    System.out.println("marcado al tel No: "+numero);
+                }
 	}
 	
-	public synchronized void colgar() {
-		//Comparar si el telefono descolgado no esta realizando una llamada.
+	public synchronized  void colgar() {
+		//Comparar si el telefono descolgado no está realizando una llamada.
 		//Esto para poder notificar al otro teléfono que la llamada ya ha finalizado.
 		System.out.println("Voy a colgar...");
-		//Escenarios fuera de una llamada con otro teléfono (3) o bien, este permanezca colgado pero está siendo llamado (6) 
-		if(this.getEstado() > 1 && this.getEstado() < 5) {
-			System.out.println("Este telefono se ha colgado");
-			this.dormir();
+		//Escenarios fuera de una llamada con otro teléfono (3) o bien, este permanezca colgado pero esté siendo llamado (6) 
+		if(this.getEstado() > 0 && this.getEstado() != 3 && this.getEstado() != -6) {
+			System.out.println("Este teléfono se ha colgado");
+			this.setEstado(0); // El estado de colgado es 0. 
+			dormido = true; //el teléfono ha sido colgado.
+                        notify();
 		}
-		//De lo contrario, si el teléfono está en una llamada es necesario notificar a la central que el teléfono esté libre.
-		else if(this.getEstado() == 5) {
+		//De lo contrario, si el teléfono está en una llamada es necesario notificar a la centrar que el teléfono está libre.
+		else if(this.getEstado() == 3) {
 			//se debe notificar a la central para que el otro telefono sepa que ya se ha finalizado la llamada
 			central.finalizarLlamada(telefono, numero); //donde telefono es el remitente y numero es el telefono con el que se comunica
-			System.out.println("Este telefono con numero " + numero + " finalizo la llamada con " + telefono);
-			this.dormir();
+			System.out.println("Este telefono con numero " + numero + " finalizó la llamada con " + telefono);
+			this.setEstado(0);
+			notify(); //el telefono está libre y puede realizarse una nueva llamada
+			dormido = true;
 		}
 	}
 	
@@ -195,18 +201,6 @@ public class Telefono extends Thread{
 		notify();//llamada a la funcion que reanuda la ejecucion del hilo.
 	}
 
-	//---------funcion que renauda el hilo-----------------------
-        //una vez que el teléfono haya colgado, es necesario renaudar la ejecución del
-        //hilo para que la información de este vuelva a fluir. Esta es llamada a través de 
-        //la funcion colgar();
-        private synchronized void dormir() {
-            this.setEstado(0);//estado cambia a 0, el cual indica que el teléfono ha colgado.
-            this.numero = -1; //no hay teléfono con el que se establezca una comunicación
-            //dormido = true;//la bandera indica que el teléfono se ha colgado
-            System.out.println("Me dormi -> " + telefono);
-            notify(); //renauda la ejecución del hilo.
-        }
-	
 	public synchronized boolean getDormido(){
 		return dormido;
 	}

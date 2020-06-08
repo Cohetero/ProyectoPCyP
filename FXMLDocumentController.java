@@ -113,9 +113,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
-                telefonos[0].colgar();
                 genSte0.setText("Colgado");
                 state0.setText("");
+                telefonos[0].colgar();
             break;
             
         }
@@ -132,9 +132,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
-                telefonos[1].colgar();
                 genSte1.setText("Colgado");
                 state1.setText("");
+                telefonos[1].colgar();
             break;
             
         }
@@ -151,9 +151,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
-                telefonos[2].colgar();
                 genSte2.setText("Colgado");
                 state2.setText("");
+                telefonos[2].colgar();
             break;
             
         }
@@ -170,9 +170,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
-                telefonos[3].colgar();
                 genSte3.setText("Colgado");
                 state3.setText("");
+                telefonos[3].colgar();
             break;
             
         }
@@ -189,9 +189,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
-                telefonos[4].colgar();
                 genSte4.setText("Colgado");
                 state4.setText("");
+                telefonos[4].colgar();
             break;
             
         }
@@ -208,9 +208,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
-                telefonos[5].colgar();
                 genSte5.setText("Colgado");
                 state5.setText("");
+                telefonos[5].colgar();
             break;
             
         }
@@ -227,9 +227,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
-                telefonos[6].colgar();
                 genSte6.setText("Colgado");
                 state6.setText("");
+                telefonos[6].colgar();
             break;
             
         }
@@ -246,9 +246,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
-                telefonos[7].colgar();
                 genSte7.setText("Colgado");
                 state7.setText("");
+                telefonos[7].colgar();
             break;
             
         }
@@ -265,9 +265,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
-                telefonos[8].colgar();
                 genSte8.setText("Colgado");
                 state8.setText("");
+                telefonos[8].colgar();
             break;
             
         }
@@ -284,9 +284,9 @@ public class FXMLDocumentController implements Initializable {
                 }
             break;
             default:
-                telefonos[9].colgar();
                 genSte9.setText("Colgado");
                 state9.setText("");
+                telefonos[9].colgar();
             break;
             
         }
@@ -302,7 +302,7 @@ public class FXMLDocumentController implements Initializable {
             if(strNum != null){
                 try {
                     short num = Short.parseShort(strNum);
-                    telefonos[0].setNumero(num);
+                    telefonos[0].setNumero(--num);
                 }catch (NumberFormatException e){}
             }
         }
@@ -315,7 +315,7 @@ public class FXMLDocumentController implements Initializable {
             if(strNum != null){
                 try {
                     short num = Short.parseShort(strNum);
-                    telefonos[1].setNumero(num);
+                    telefonos[1].setNumero(--num);
                 }catch (NumberFormatException e){}
             }
         }
@@ -328,7 +328,7 @@ public class FXMLDocumentController implements Initializable {
             if(strNum != null){
                 try {
                     short num = Short.parseShort(strNum);
-                    telefonos[2].setNumero(num);
+                    telefonos[2].setNumero(--num);
                 }catch (NumberFormatException e){}
             }
         }
@@ -341,7 +341,7 @@ public class FXMLDocumentController implements Initializable {
             if(strNum != null){
                 try {
                     short num = Short.parseShort(strNum);
-                    telefonos[3].setNumero(num);
+                    telefonos[3].setNumero(--num);
                 }catch (NumberFormatException e){}
             }
         }
@@ -354,7 +354,7 @@ public class FXMLDocumentController implements Initializable {
             if(strNum != null){
                 try {
                     short num = Short.parseShort(strNum);
-                    telefonos[4].setNumero(num);
+                    telefonos[4].setNumero(--num);
                 }catch (NumberFormatException e){}
             }
         }
@@ -367,7 +367,7 @@ public class FXMLDocumentController implements Initializable {
             if(strNum != null){
                 try {
                     short num = Short.parseShort(strNum);
-                    telefonos[5].setNumero(num);
+                    telefonos[5].setNumero(--num);
                 }catch (NumberFormatException e){}
             }
         }
@@ -380,7 +380,7 @@ public class FXMLDocumentController implements Initializable {
             if(strNum != null){
                 try {
                     short num = Short.parseShort(strNum);
-                    telefonos[6].setNumero(num);
+                    telefonos[6].setNumero(--num);
                 }catch (NumberFormatException e){}
             }
         }
@@ -393,7 +393,7 @@ public class FXMLDocumentController implements Initializable {
             if(strNum != null){
                 try {
                     short num = Short.parseShort(strNum);
-                    telefonos[7].setNumero(num);
+                    telefonos[7].setNumero(--num);
                 }catch (NumberFormatException e){}
             }
         }
@@ -406,7 +406,7 @@ public class FXMLDocumentController implements Initializable {
             if(strNum != null){
                 try {
                     short num = Short.parseShort(strNum);
-                    telefonos[8].setNumero(num);
+                    telefonos[8].setNumero(--num);
                 }catch (NumberFormatException e){}
             }
         }
@@ -419,7 +419,7 @@ public class FXMLDocumentController implements Initializable {
             if(strNum != null){
                 try {
                     short num = Short.parseShort(strNum);
-                    telefonos[9].setNumero(num);
+                    telefonos[9].setNumero(--num);
                 }catch (NumberFormatException e){}
             }
         }
