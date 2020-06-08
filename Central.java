@@ -48,12 +48,21 @@ public class Central{
 	 */
 	private int verificar()
 	{
+		if(destinatario == remitente){ //si se llamo a si mismo
+			return 9; //devuelve un estado de 9
+	    	}
 		for(int i = 0; i < numeroTelefonos; i++)
 		{
 			if(telefonos[i].getTelefono() == destinatario)
 			{
 				if(telefonos[i].getEstado() == 0) {
 					telefonos[i].descolgarPorLlamada(remitente);
+                                        do{ //Ciclo para espera hasta que le conteste el otro telefono
+                                            try {
+                                                    Thread.sleep(500);
+                                            }catch(InterruptedException e) {}
+                                            System.out.println("Telefono " + remitente + " esperando");
+                                        }while(telefonos[i].getEstado() != 5); //se sale cuando el otro telefono le contesto
 					return 5; 
 				}
 				return 8;
