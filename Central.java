@@ -1,10 +1,11 @@
-//<<<<<<< Codigo-en-revison-2
 /***************************************\
 *Clase Central del proyecto central 	*
 *telefonica, su objetivo es emular el 	*
-*funcionamiento de una central 			*
-*telefonica.							*
+*funcionamiento de una central          *
+*telefonica.                            *
 \***************************************/
+
+package centraltelefonica;
 
 public class Central{
 	
@@ -47,55 +48,62 @@ public class Central{
 	 */
 	private int verificar()
 	{
+            if(destinatario == remitente){ //si se llamo a si mismo
+                return 9; //devuelve un estado de 9
+            }
 		for(int i = 0; i < numeroTelefonos; i++)
 		{
 			if(telefonos[i].getTelefono() == destinatario)
 			{
 				if(telefonos[i].getEstado() == 0) {
 					telefonos[i].descolgarPorLlamada(remitente);
+                                        do{ //Ciclo para espera hasta que le conteste el otro telefono
+                                            try {
+                                                    Thread.sleep(800);
+                                            }catch(InterruptedException e) {}
+                                            System.out.println("Telefono " + remitente + " esperando");
+                                        }while(telefonos[i].getEstado() != 5); //se sale cuando el otro telefono le contesto
 					return 5; 
-				}
+				}else if(telefonos[i].getEstado() == 5){
+                                    telefonos[remitente].waitTelefono();
+                                    do{ //Ciclo para espera hasta que le conteste el otro telefono
+                                        try {
+                                                Thread.sleep(800);
+                                        }catch(InterruptedException e) {}
+                                        System.out.println("Telefono " + remitente + " esperando");
+                                    }while(telefonos[i].getEstado() != 0); //se sale cuando el otro telefono le contesto
+                                    telefonos[remitente].descolgar();
+                                    telefonos[i].descolgarPorLlamada(remitente);
+                                }
 				return 8;
 			}
 		}
 		return 7;
-//=======
-public class Central extends Thread{
-	
-	Telefono[] telefonos;
-	int destinatario;
-	public Central(Telefono[] telefonos) {
-		this.telefonos = telefonos;
-	}
-
-	public conexion(int num) { //funcion que guarda el numero del telefono al que vamos a marcar.
-		this.destinatario = num;
 	}
 	
-	public void run() {
-		System.out.println("soy la central");
-		while(true) { //mientras dure la llamada, entonces sigue manteniendo la conexion entre ambos telefonos
-			telefono[destinatario].llamar();
+        public void notifica(int destinatario){
+            for(int i = 0; i < numeroTelefonos; i++) {
+                if(destinatario == telefonos[i].getTelefono()){
+                    telefonos[i].setEstado(3);
+                    telefonos[i].mensajeNotifacion();
+                    break;
+                }
+            }
+        }
+        
+	//Funcion que se ejecuta cuando un telefono cuelga, por lo que el estado del otro telefono tambien debe cambiar.
+	public void finalizarLlamada(int remitente, int destinatario) {
+		this.remitente = (short)remitente; //numero que cuelga
+		this.destinatario = (short)destinatario; //numero al que se colgó
+		for(short i = 0; i < numeroTelefonos; i ++) { //buscar el telefono al que se le ha colgado
+			//cuando el teléfono que solicitó colgar cumpla esa función, es necesario cambiar
+			// el estado del otro teléfono a descolgado.
+			if(telefonos[i].getTelefono() == destinatario) { //si el telefono corresponde con el que se establecía la llamada
+				//telefonos[i].descolgar(); //cambiamos el estado del destinatario de llamada a unicamente descolgado.
+				
+                                System.out.println("Mensaje del telefono" + destinatario + " -> El telefono " + remitente + " terminó la llamada conmigo.");
+				break; //rompemos el ciclo de busqueda
+			}
 		}
-	}
-
-	public void marcar(int num) {
-		this.conexion(num); //guardamos el numero al que vamos a comunicar
-		if(telefono[num].colgado) { //si el telefono al que se marca esta colgado, entonces central aceptara la llamada, ya que el recurso esta libre
-			this.run(); //en ese caso, la llamada se hará de forma directa
-		}
-		else { //de lo contrario, debemos esperar a que el telefono finalice la llamada
-			while(!telefono[num].colgado) {
-				try {
-					System.out.println("El telefono esta ocupado, espere por favor");
-					wait();
-				}catch(InterruptedException e) {;}
-				if(telefono[num].colgado){ //si el telefono ya ha terminado de llamar, entonces procederemos a establecer una conexion entre estos
-					this.run()
-					break;			
-				}
-			}			
-		}
-//>>>>>>> Codigo-en-revision
 	}
 }
