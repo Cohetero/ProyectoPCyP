@@ -196,7 +196,7 @@ public class Telefono extends Thread{
         private synchronized void dormir() {
             this.setEstado(0);//estado cambia a 0, el cual indica que el teléfono ha colgado.
             this.numero = -1; //no hay teléfono con el que se establezca una comunicación
-            dormido = true;//la bandera indica que el teléfono se ha colgado
+            //dormido = true;//la bandera indica que el teléfono se ha colgado
             System.out.println("Me dormi -> " + telefono);
             notify(); //renauda la ejecución del hilo.
         }
