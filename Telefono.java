@@ -91,6 +91,9 @@ public class Telefono extends Thread{
                         switch(estado){
                             case 5://Si estado es igual a 5 se realiza la llamada
 				System.out.println("Hola ");
+				try {
+                                    Thread.sleep(1000);
+                                }catch(InterruptedException e) {}
 				System.out.println("bla bla bla");
                             break;
                             case 7:// Si estado es igual a 7 manda mensaje de que no existe
@@ -101,14 +104,21 @@ public class Telefono extends Thread{
 				System.out.println("El numero que usted marco no existe no se encuentra disponible, favor de llamar mas tarde");
 				System.out.println("Tuuu-Tuuu-Tuuu...");
                             break;
+			    case 9:// Si estado es igual a 9 manda mensaje de que se marco a el mismo
+                                System.out.println("Se llamo a usted mismo");
+                                System.out.println("Tuuu-Tuuu-Tuuu...");
+                            break;	
 			}
-		}else if(estado == 6){ //si estado es igual a 6 indica que contesto la llamada entrante
-			this.setEstado(5);
+		}else if(estado == 5){ //si estado es igual a 5 indica que contesto la llamada entrante o esta en llamada
+			//this.setEstado(5);
 			System.out.println("Bueno ");
-			System.out.println("bla bla bla bla bla");
+			try {
+                            Thread.sleep(1000);
+                        }catch(InterruptedException e) {}
+                        System.out.println("Telefono" + telefono + " dice: bla bla bla bla bla");
 		}
-		this.setEstado(0);
-		dormido = true;
+		//this.setEstado(0);
+		//dormido = true;
 	}
 	
 	//-------funcion que indica se ha descolgado el telefono-----
@@ -118,7 +128,14 @@ public class Telefono extends Thread{
 	//esta funcion.
 	public boolean descolgar() {
 		this.despertar();//Despierta el hilo del objeto telefono en que ha sido llamado.
-		this.setEstado(1);
+		
+		//verifica el estado en que se encuentre
+                if(this.getEstado() == 0){  //Si esta en colgado y en espera
+                    this.setEstado(1);  //se pasa para 1 que apenas descolgo
+                }else{//Si no, cuando el estado es 6- colgado y recibiendo una llamada
+                    this.setEstado(5);  //se pasa para el 5 indicando que comenzo la llamada
+                }
+		
 		//Despierta el hilo de la central telefonica, y verifica estado.
                 return true;
 	}
@@ -131,8 +148,9 @@ public class Telefono extends Thread{
 	public synchronized void descolgarPorLlamada(short remitente){
 		System.out.println("Ring-Ring");
 		System.out.println("Me estan llamando el Telefono " + remitente);
-		this.setEstado(6);
-		this.despertar();	//despierta al hilo telefono
+		this.setEstado(6);	//Pasa a estado colgado y con recibiendo llamada
+		this.numero = remitente;    //Se guarda el numero del que esta llamando
+		//this.despertar();	//despierta al hilo telefono
 	}
 	
 	//-------funcion que espera el marcado de un numero---------
