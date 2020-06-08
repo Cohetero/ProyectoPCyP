@@ -112,6 +112,14 @@ public class FXMLDocumentController implements Initializable {
                     state0.setText("Sin señal");
                 }
             break;
+            case 6:
+                genSte0.setText("Llamada");
+                if(telefonos[0].descolgar()){
+                    state0.setText("Ring-Ring");
+                }else{
+                    state0.setText("Sin señal");
+                }
+            break;
             default:
                 genSte0.setText("Colgado");
                 state0.setText("");
@@ -127,6 +135,14 @@ public class FXMLDocumentController implements Initializable {
                 genSte1.setText("Descolgado");
                 if(telefonos[1].descolgar()){
                     state1.setText("piiii...");
+                }else{
+                    state1.setText("Sin señal");
+                }
+            break;
+            case 6:
+                genSte1.setText("Llamada");
+                if(telefonos[1].descolgar()){
+                    state1.setText("Ring-Ring");
                 }else{
                     state1.setText("Sin señal");
                 }
@@ -150,6 +166,14 @@ public class FXMLDocumentController implements Initializable {
                     state2.setText("Sin señal");
                 }
             break;
+            case 6:
+                genSte2.setText("Llamada");
+                if(telefonos[2].descolgar()){
+                    state2.setText("Ring-Ring");
+                }else{
+                    state2.setText("Sin señal");
+                }
+            break;
             default:
                 genSte2.setText("Colgado");
                 state2.setText("");
@@ -165,6 +189,14 @@ public class FXMLDocumentController implements Initializable {
                 genSte3.setText("Descolgado");
                 if(telefonos[3].descolgar()){
                     state3.setText("piiii...");
+                }else{
+                    state3.setText("Sin señal");
+                }
+            break;
+            case 6:
+                genSte3.setText("Llamada");
+                if(telefonos[3].descolgar()){
+                    state3.setText("Ring-Ring");
                 }else{
                     state3.setText("Sin señal");
                 }
@@ -188,6 +220,14 @@ public class FXMLDocumentController implements Initializable {
                     state4.setText("Sin señal");
                 }
             break;
+            case 6:
+                genSte4.setText("Llamada");
+                if(telefonos[4].descolgar()){
+                    state4.setText("Ring-Ring");
+                }else{
+                    state4.setText("Sin señal");
+                }
+            break;
             default:
                 genSte4.setText("Colgado");
                 state4.setText("");
@@ -203,6 +243,14 @@ public class FXMLDocumentController implements Initializable {
                 genSte5.setText("Descolgado");
                 if(telefonos[5].descolgar()){
                     state5.setText("piiii...");
+                }else{
+                    state5.setText("Sin señal");
+                }
+            break;
+            case 6:
+                genSte5.setText("Llamada");
+                if(telefonos[5].descolgar()){
+                    state5.setText("Ring-Ring");
                 }else{
                     state5.setText("Sin señal");
                 }
@@ -226,6 +274,14 @@ public class FXMLDocumentController implements Initializable {
                     state6.setText("Sin señal");
                 }
             break;
+            case 6:
+                genSte6.setText("Llamada");
+                if(telefonos[6].descolgar()){
+                    state6.setText("Ring-Ring");
+                }else{
+                    state6.setText("Sin señal");
+                }
+            break;
             default:
                 genSte6.setText("Colgado");
                 state6.setText("");
@@ -241,6 +297,14 @@ public class FXMLDocumentController implements Initializable {
                 genSte7.setText("Descolgado");
                 if(telefonos[7].descolgar()){
                     state7.setText("piiii...");
+                }else{
+                    state7.setText("Sin señal");
+                }
+            break;
+            case 6:
+                genSte7.setText("Llamada");
+                if(telefonos[7].descolgar()){
+                    state7.setText("Ring-Ring");
                 }else{
                     state7.setText("Sin señal");
                 }
@@ -264,6 +328,14 @@ public class FXMLDocumentController implements Initializable {
                     state8.setText("Sin señal");
                 }
             break;
+            case 6:
+                genSte8.setText("Llamada");
+                if(telefonos[8].descolgar()){
+                    state8.setText("Ring-Ring");
+                }else{
+                    state8.setText("Sin señal");
+                }
+            break;
             default:
                 genSte8.setText("Colgado");
                 state8.setText("");
@@ -279,6 +351,14 @@ public class FXMLDocumentController implements Initializable {
                 genSte9.setText("Descolgado");
                 if(telefonos[9].descolgar()){
                     state9.setText("piiii...");
+                }else{
+                    state9.setText("Sin señal");
+                }
+            break;
+            case 6:
+                genSte9.setText("Llamada");
+                if(telefonos[9].descolgar()){
+                    state9.setText("Ring-Ring");
                 }else{
                     state9.setText("Sin señal");
                 }
